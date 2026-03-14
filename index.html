@@ -27,7 +27,6 @@
             padding: 20px;
         }
 
-        /* Contenedor Principal */
         .card {
             background: var(--blanco);
             width: 100%;
@@ -40,14 +39,13 @@
             border: 4px solid var(--azul-claro);
         }
 
-        /* Logo Extraído */
         .logo-container {
             padding: 30px 20px 10px;
             background: radial-gradient(circle, #ffffff 0%, #e0f4ff 100%);
         }
 
         .logo-img {
-            width: 180px;
+            width: 220px; /* Tamaño optimizado para tu logo */
             height: auto;
             filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
         }
@@ -57,7 +55,6 @@
         h1 { color: var(--rojo-maria); font-size: 24px; margin-bottom: 5px; }
         p.slogan { color: #666; font-style: italic; margin-bottom: 20px; font-size: 14px; }
 
-        /* Botones Interactivos */
         .btn-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
 
         .btn {
@@ -75,13 +72,11 @@
         }
 
         .btn:active { transform: scale(0.95); }
-
         .btn-ws { background-color: var(--whatsapp); }
         .btn-call { background-color: #007bff; }
         .btn-ig { background-color: var(--instagram); }
         .btn-pdf { background-color: #ff9800; }
 
-        /* Footer Créditos */
         .footer {
             background: #f9f9f9;
             padding: 15px;
@@ -90,7 +85,6 @@
             border-top: 1px solid #eee;
         }
 
-        /* Control de Suscripción Pantalla Bloqueo */
         #bloqueo {
             display: none;
             position: fixed;
@@ -117,7 +111,7 @@
 
     <div class="card" id="main-content">
         <div class="logo-container">
-            <img src="https://i.imgur.com/u7r3X8u.png" alt="Manjares MaríaE" class="logo-img">
+            <img src="manjaresmariae.PNG" alt="Manjares MaríaE" class="logo-img">
         </div>
 
         <div class="info-section">
@@ -156,13 +150,9 @@
     </div>
 
     <script>
-        /** * CONTROL INVISIBLE DE SUSCRIPCIÓN
-         * Cambia la fecha para manejar el vencimiento
-         */
         (function() {
-            const fechaVencimiento = new Date('2027-03-14'); // Fecha de corte (1 año)
+            const fechaVencimiento = new Date('2027-03-14');
             const hoy = new Date();
-            
             if (hoy > fechaVencimiento) {
                 document.getElementById('main-content').style.display = 'none';
                 document.getElementById('bloqueo').style.display = 'flex';
