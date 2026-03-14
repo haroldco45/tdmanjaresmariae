@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Digital - Manjares MaríaE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-claro: #add8e6;
+            --rojo-maria: #e60000;
+            --blanco: #ffffff;
+            --texto: #333333;
+            --whatsapp: #25d366;
+            --instagram: #e1306c;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Contenedor Principal */
+        .card {
+            background: var(--blanco);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            border: 4px solid var(--azul-claro);
+        }
+
+        /* Logo Extraído */
+        .logo-container {
+            padding: 30px 20px 10px;
+            background: radial-gradient(circle, #ffffff 0%, #e0f4ff 100%);
+        }
+
+        .logo-img {
+            width: 180px;
+            height: auto;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .info-section { padding: 0 25px 20px; }
+        
+        h1 { color: var(--rojo-maria); font-size: 24px; margin-bottom: 5px; }
+        p.slogan { color: #666; font-style: italic; margin-bottom: 20px; font-size: 14px; }
+
+        /* Botones Interactivos */
+        .btn-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .btn:active { transform: scale(0.95); }
+
+        .btn-ws { background-color: var(--whatsapp); }
+        .btn-call { background-color: #007bff; }
+        .btn-ig { background-color: var(--instagram); }
+        .btn-pdf { background-color: #ff9800; }
+
+        /* Footer Créditos */
+        .footer {
+            background: #f9f9f9;
+            padding: 15px;
+            font-size: 11px;
+            color: #888;
+            border-top: 1px solid #eee;
+        }
+
+        /* Control de Suscripción Pantalla Bloqueo */
+        #bloqueo {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bloqueo">
+        <i class="fas fa-lock" style="font-size: 50px; color: red; margin-bottom: 20px;"></i>
+        <h2>Suscripción Expirada</h2>
+        <p>Por favor, contacte al desarrollador para renovar su tarjeta digital.</p>
+        <br>
+        <a href="https://wa.me/573117700431" style="color: blue;">Soporte Vibras Positivas</a>
+    </div>
+
+    <div class="card" id="main-content">
+        <div class="logo-container">
+            <img src="https://i.imgur.com/u7r3X8u.png" alt="Manjares MaríaE" class="logo-img">
+        </div>
+
+        <div class="info-section">
+            <h1>Manjares MaríaE</h1>
+            <p class="slogan">¡Endulzamos tus tardes con sabor casero!</p>
+
+            <div class="btn-container">
+                <a href="https://wa.me/573106921210?text=Hola!%20Vengo%20de%20tu%20tarjeta%20digital,%20quiero%20hacer%20un%20pedido" class="btn btn-ws">
+                    <i class="fab fa-whatsapp"></i> PEDIR POR WHATSAPP
+                </a>
+
+                <a href="tel:+573106921210" class="btn btn-call">
+                    <i class="fas fa-phone-alt"></i> LLAMAR AHORA
+                </a>
+
+                <a href="https://instagram.com/manjaresmariae" class="btn btn-ig">
+                    <i class="fab fa-instagram"></i> SÍGUENOS EN INSTAGRAM
+                </a>
+
+                <a href="#" class="btn btn-pdf">
+                    <i class="fas fa-file-pdf"></i> VER CATÁLOGO DE POSTRES
+                </a>
+            </div>
+
+            <p style="font-size: 13px; color: #555;">
+                <strong>Domicilios GRATIS</strong><br>
+                Arroz con Leche • Dulce Cortado
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>Generada: 14/03/2026 - Colombia</p>
+            <p><strong>App desarrollada por Vibras Positivas (3117700431)</strong></p>
+            <p>Derechos de Autor Reservados © 2026</p>
+        </div>
+    </div>
+
+    <script>
+        /** * CONTROL INVISIBLE DE SUSCRIPCIÓN
+         * Cambia la fecha para manejar el vencimiento
+         */
+        (function() {
+            const fechaVencimiento = new Date('2027-03-14'); // Fecha de corte (1 año)
+            const hoy = new Date();
+            
+            if (hoy > fechaVencimiento) {
+                document.getElementById('main-content').style.display = 'none';
+                document.getElementById('bloqueo').style.display = 'flex';
+            }
+        })();
+    </script>
+</body>
+</html>
